@@ -1,4 +1,4 @@
-package pe.edu.upc.schedule.customer.domain.model.entities;
+package pe.edu.upc.schedule.andresdoig.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -52,8 +52,5 @@ public class AndresDoig {
   @Temporal(TemporalType.DATE)
   private Date publishDate; // lower Camel Case
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "career_id")
-  private Career career;
 
 }

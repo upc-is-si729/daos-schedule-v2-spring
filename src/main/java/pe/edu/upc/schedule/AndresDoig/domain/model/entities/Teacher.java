@@ -1,4 +1,4 @@
-package pe.edu.upc.schedule.AndresDoig.domain.model.entities;
+package pe.edu.upc.schedule.andresdoig.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -32,6 +32,12 @@ public class Teacher {
   @Size(min = 8, max = 12)
   @Column(name = "num_documento", length = 12, nullable = false)
   private String numDocumento;
+
+  @NotNull
+  @NotBlank
+  @Size(min = 9, max = 10)
+  @Column(name = "codigo", length = 10, nullable = false)  // u201712256
+  private String codigo;
 
   @Past
   @Column(name = "birth_date")
