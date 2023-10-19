@@ -19,6 +19,7 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
     @NotNull
     @NotBlank
     @Size(min = 10, max = 50)
