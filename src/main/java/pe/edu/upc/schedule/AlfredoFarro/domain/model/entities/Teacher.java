@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teacher")
+@Table(name = "teachers")
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +31,8 @@ public class Teacher {
     @NotNull
     @NotBlank
     @Size(min = 9, max = 10)
-    @Column(name = "cod", length = 10, nullable = false)
-    private String cod;
+    @Column(name = "codigo", length = 10, nullable = false)
+    private String codigo;
 
     @NotNull
     @NotBlank
