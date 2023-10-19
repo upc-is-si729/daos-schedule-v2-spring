@@ -23,7 +23,7 @@ public class Teacher {
     @NotBlank
     @Size(min = 10, max = 50)
     @Column(name = "name", length = 50, nullable = false)
-    private String name;
+    private String name; 
 
     @NotNull
     @NotBlank // Validation: Objeto
