@@ -1,4 +1,4 @@
-package pe.edu.upc.schedule.AlfredoFarro.domain.model.entities;
+package pe.edu.upc.schedule.alfredofarro.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
