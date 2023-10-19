@@ -20,16 +20,10 @@ public class Teacher {
     private Integer id;
 
     @NotNull
-    @NotBlank // Validation: Objeto
-    @Size(min = 10, max = 50)  // Validation: Objeto
+    @NotBlank
+    @Size(min = 10, max = 50)
     @Column(name = "name", length = 50, nullable = false)
     private String name;
-
-    @NotNull
-    @NotBlank // Validation: Objeto
-    @Size(min = 10, max = 50)
-    @Column(name = "lastname", length = 50, nullable = false)
-    private String lastname;
 
     @NotNull
     @NotBlank // Validation: Objeto
@@ -38,9 +32,16 @@ public class Teacher {
     private String email;
 
     @NotNull
-    @NotBlank
-    @Column(name = "phone", length = 9, nullable = false)
+    @NotBlank // Validation: Objeto
+    @Size(min = 10, max = 50)
+    @Column(name = "phone", length = 50, nullable = false)
     private String phone;
 
+
+    @NotNull
+    @NotBlank // Validation: Objeto
+    @Size(min = 10, max = 50)
+    @Column(name = "codigo", length = 50, nullable = false)
+    private String codigo;
 
 }
