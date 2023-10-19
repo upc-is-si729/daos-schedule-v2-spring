@@ -1,4 +1,4 @@
-package pe.edu.upc.schedule.stevens_acha.domain.model.entities;
+package pe.edu.upc.schedule.stevensacha.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
