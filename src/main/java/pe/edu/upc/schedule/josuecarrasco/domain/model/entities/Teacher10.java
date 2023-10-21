@@ -1,19 +1,17 @@
-package pe.edu.upc.schedule.SantosPatazca.domain.model.entitie;
+package pe.edu.upc.schedule.josuecarrasco.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
-import pe.edu.upc.schedule.customer.domain.model.entities.Career;
 
 import java.util.Date;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
-public class Teacher {
-
+@Table(name = "teachers10")
+public class Teacher10 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,8 +23,8 @@ public class Teacher {
     private String lastName;
 
     @NotNull
-    @NotBlank // Validation: Objeto
-    @Size(min = 2, max = 50)  // Validation: Objeto
+    @NotBlank
+    @Size(min = 2, max = 50)
     @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
 
@@ -46,6 +44,5 @@ public class Teacher {
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
-
 
 }
