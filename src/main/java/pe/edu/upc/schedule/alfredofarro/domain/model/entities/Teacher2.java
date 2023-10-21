@@ -1,4 +1,4 @@
-package pe.edu.upc.schedule.stevensacha.domain.model.entities;
+package pe.edu.upc.schedule.alfredofarro.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -10,8 +10,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
-public class Teacher {
+@Table(name = "teachers2")
+public class Teacher2 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -28,20 +28,22 @@ public class Teacher {
     @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
 
-    @Past
-    @Column(name = "birth_date")
-    @Temporal(TemporalType.DATE)
-    private Date birthDate; // lower Camel Case
+    @NotNull
+    @NotBlank
+    @Size(min = 9, max = 10)
+    @Column(name = "codigo", length = 10, nullable = false)
+    private String codigo;
 
     @NotNull
     @NotBlank
     @Size(min = 8, max = 12)
-    @Column(name = "num_document", length = 12, nullable = false)
-    private String numDocument;
+    @Column(name = "num_documento", length = 12, nullable = false)
+    private String numDocumento;
 
-    @NotNull
-    @NotBlank
-    @Size(min = 9, max = 10)
-    @Column(name = "code", length = 10, nullable = false)
-    private String code;
+    @Past
+    @Column(name = "birth_date")
+    @Temporal(TemporalType.DATE)
+    private Date birthDate;
+
 }
+

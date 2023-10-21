@@ -10,8 +10,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
-public class Teacher {
+@Table(name = "teachers5")
+public class Teacher5 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

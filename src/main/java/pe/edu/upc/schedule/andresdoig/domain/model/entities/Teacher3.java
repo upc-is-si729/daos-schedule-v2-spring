@@ -9,8 +9,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
-public class Teacher {
+@Table(name = "teachers3")
+public class Teacher3 {
       @Id // PRIMARY KEY
   @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTOINCREMENT o SEQUENCE
   private Integer id;
