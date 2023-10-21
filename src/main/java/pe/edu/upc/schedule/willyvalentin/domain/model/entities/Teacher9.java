@@ -1,4 +1,4 @@
-package pe.edu.upc.schedule.customer.domain.model.entities;
+package pe.edu.upc.schedule.willyvalentin.domain.model.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -7,24 +7,21 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
-public class Teacher {
+@Table(name = "teachers9")
+public class Teacher9 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
     @NotNull
     @NotBlank
     @Size(min = 10, max = 50)
     @Column(name = "name", length = 50, nullable = false)
-    private String name; 
+    private String name;
 
     @NotNull
     @NotBlank // Validation: Objeto

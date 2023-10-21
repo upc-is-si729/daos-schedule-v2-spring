@@ -8,6 +8,7 @@ import pe.edu.upc.schedule.customer.domain.persistence.StudentRepository;
 import pe.edu.upc.schedule.customer.domain.service.StudentService;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -23,5 +24,20 @@ public class StudentServiceImpl implements StudentService {
   @Override
   public List<Student> fetchAll() {
     return studentRepository.findAll();
+  }
+
+  @Override
+  public Student fetchByTiu(String tiu) {
+    Optional<Student> optionalStudent = studentRepository.findByTiu(tiu);
+    if (optionalStudent.isPresent()) {
+      return optionalStudent.get();
+    }
+    throw new RuntimeException("No hay el TIU a buscar");
+  }
+
+  @Override
+  public List<Student> fetchByLevelBetween(int levelInit, int levelEnd) {
+    //return studentRepository.findByLevelBetween(levelInit, levelEnd);
+    return studentRepository.sqlLevelBetween(levelInit, levelEnd);
   }
 }

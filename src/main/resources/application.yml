@@ -27,13 +27,13 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     #    JDBC : SGDB :// HOST : PORT / DB
-    url: jdbc:postgresql://localhost:5432/schedulev2
+    url: jdbc:postgresql://localhost:5433/schedulev2
     username: postgres
-    password: postgres
+    password: admin
   jpa:
     database: postgresql
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:

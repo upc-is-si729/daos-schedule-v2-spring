@@ -25,4 +25,14 @@ public class StudentController {
     return studentService.fetchAll();
   }
 
+  @GetMapping("tiu/{tiu}")
+  public Student fetchTiu(@PathVariable("tiu") String tiu) {
+    return studentService.fetchByTiu(tiu);
+  }
+
+  @GetMapping("level/{init}/{end}")
+  public List<Student> fetchLevelBetween(@PathVariable("init") int levelInit, @PathVariable("end") int levelEnd) {
+    return studentService.fetchByLevelBetween(levelInit, levelEnd);
+  }
+
 }

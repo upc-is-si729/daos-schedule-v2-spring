@@ -10,9 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
+@Table(name = "teachers1")
 
-public class Teacher {
+public class Teacher1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,19 +33,19 @@ public class Teacher {
     @NotNull
     @NotBlank
     @Size(min = 2, max = 50)
-    @Column(name = "last_name", length = 50, nullable = false)
+    @Column(name = "email", length = 50, nullable = false)
     private String email;
 
     @NotNull
     @NotBlank
     @Size(min = 2, max = 50)
-    @Column(name = "last_name", length = 50, nullable = false)
+    @Column(name = "phone", length = 50, nullable = false)
     private String phone;
 
     @NotNull
     @NotBlank
     @Size(min = 2, max = 50)
-    @Column(name = "last_name", length = 50, nullable = false)
+    @Column(name = "dni", length = 50, nullable = false)
     private String dni;
 
 }

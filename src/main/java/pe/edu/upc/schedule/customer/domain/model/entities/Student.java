@@ -1,5 +1,6 @@
 package pe.edu.upc.schedule.customer.domain.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -51,6 +52,7 @@ public class Student {
   @Column(name = "level", columnDefinition = "smallint")
   private int level;
 
+  @JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "career_id")
   private Career career;
