@@ -13,8 +13,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers")
-public class Teacher {
+@Table(name = "teacher10")
+public class Teacher10 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
