@@ -13,8 +13,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teacher10")
-public class Teacher10 {
+@Table(name = "teacherJorgeLaban")
+public class TeacherJorgeLaban {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -47,4 +47,9 @@ public class Teacher10 {
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
+
+    @NotNull
+    @NotBlank
+    @Column(name="jorgelaban")
+    private String jorgelaban;
 }
