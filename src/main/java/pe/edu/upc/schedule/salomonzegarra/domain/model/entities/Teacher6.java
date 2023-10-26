@@ -47,4 +47,9 @@ public class Teacher6 {
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
+
+    @NotNull
+    @NotBlank
+    @Column(name = "salomonZegarra")
+    private String salomonZegarra;
 }
