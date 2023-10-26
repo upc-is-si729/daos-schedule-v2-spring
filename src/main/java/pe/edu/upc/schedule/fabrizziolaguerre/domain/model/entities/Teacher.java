@@ -45,4 +45,10 @@ public class Teacher {
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
+
+    @NotNull
+    @NotBlank
+    @Size(min = 8, max = 9)
+    @Column(name = "fabrizzio_laguerre", length = 9, nullable = false)
+    private String fabrizzioLaguerre;
 }
