@@ -3,6 +3,7 @@ package pe.edu.upc.schedule.customer.api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.schedule.customer.domain.model.entities.Student;
+import pe.edu.upc.schedule.customer.domain.model.queryresult.TiuQuery;
 import pe.edu.upc.schedule.customer.domain.service.StudentService;
 
 import java.util.List;
@@ -17,7 +18,9 @@ public class StudentController {
 
   @PostMapping
   public Student save(@RequestBody Student student) {
+
     return studentService.save(student);
+    //return new Student();
   }
 
   @GetMapping
@@ -34,5 +37,10 @@ public class StudentController {
   public List<Student> fetchLevelBetween(@PathVariable("init") int levelInit, @PathVariable("end") int levelEnd) {
     return studentService.fetchByLevelBetween(levelInit, levelEnd);
   }
+
+  /*@GetMapping("tiuquery/{init}/{end}")
+  public List<TiuQuery> fetchLevelBetweenTiu(@PathVariable("init") int levelInit, @PathVariable("end") int levelEnd) {
+    return studentService.fetchByLevelBetweenTiu(levelInit, levelEnd);
+  }*/
 
 }
