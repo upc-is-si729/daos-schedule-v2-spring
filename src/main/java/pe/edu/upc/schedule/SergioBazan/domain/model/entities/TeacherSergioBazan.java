@@ -11,10 +11,16 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "teachers20")
-public class Teacher20 {
+public class TeacherSergioBazan {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
+
+  @NotNull
+  @NotBlank
+  @Size(min = 2, max = 50)
+  @Column(name = "nombre_apellido", length = 50, nullable = false)
+  private String nombreApellido;
 
   @NotNull
   @NotBlank
