@@ -1,14 +1,13 @@
-package pe.edu.upc.schedule.claravalverde.domain.service;
-import pe.edu.upc.schedule.claravalverde.domain.model.entities.Teacher;
-import pe.edu.upc.schedule.claravalverde.domain.model.queryresult.TiuQuery;
+package pe.edu.upc.schedule.ClaraValverde.domain.service;
 
-import java.util.List;
+import pe.edu.upc.schedule.claravalverde.domain.model.entities.Teacher4;
+
 import java.util.Optional;
-
 
 public interface TeacherService
 {
-    Teacher save(Teacher entity);
 
-    Optional<Teacher> fetchById(Integer id);
+    Teacher4 save(Teacher4 entity);
+
+    Optional<Teacher4> fetchById(Integer id);
 }
