@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Student, Integer> {
   // 1. Utilizar los Query Methods
   Optional<Student> findByTiu(String tiu);
+  boolean existsByTiu(String tiu);
 
   List<Student> findByLevelBetween(int levelInit, int levelEnd);
 
