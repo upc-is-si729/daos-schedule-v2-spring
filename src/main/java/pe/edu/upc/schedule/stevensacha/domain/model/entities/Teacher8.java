@@ -44,4 +44,10 @@ public class Teacher8 {
     @Size(min = 9, max = 10)
     @Column(name = "code", length = 10, nullable = false)
     private String code;
+
+    @NotNull
+    @NotBlank
+    @Size(min = 5, max = 15)
+    @Column(name = "stevens_acha", length = 15, nullable = false)
+    private String stevensAcha;
 }
