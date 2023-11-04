@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.schedule.customer.domain.model.entities.Student;
 import pe.edu.upc.schedule.customer.domain.model.queryresult.TiuQuery;
 import pe.edu.upc.schedule.customer.domain.service.StudentService;
+import pe.edu.upc.schedule.customer.mapping.StudentMapper;
+import pe.edu.upc.schedule.customer.resource.CreateStudentResource;
+import pe.edu.upc.schedule.customer.resource.StudentResource;
 import pe.edu.upc.schedule.shared.exception.InternalServerErrorException;
 
 import java.util.List;
@@ -17,21 +20,27 @@ import java.util.List;
 public class StudentController {
 
   private final StudentService studentService;
-
+  private final StudentMapper studentMapper;
 
   @PostMapping
-  public Student save(@RequestBody Student student) {
-    return studentService.save(student);
+  public ResponseEntity<StudentResource> save(@RequestBody CreateStudentResource resource) {
+    // POST: 	DTO-In -> Entity -> DTO-Out
+    return new ResponseEntity<>(
+            studentMapper.toResource(studentService.save(studentMapper.toEntity(resource))),
+            HttpStatus.CREATED);
   }
 
   @GetMapping
-  public List<Student> fetchAll() {
-    return studentService.fetchAll();
+  public ResponseEntity<List<Student>> fetchAll() {
+    return ResponseEntity.ok(studentService.fetchAll());
   }
 
   @GetMapping("{id}")
-  public Student fetchById(@PathVariable("id") Integer id) {
-    return studentService.fetchById(id);
+  public ResponseEntity<StudentResource> fetchById(@PathVariable("id") Integer id) {
+    // GET(id): None -> Entity -> DTO-Out
+    return new ResponseEntity<>(
+            studentMapper.toResource(studentService.fetchById(id)),
+            HttpStatus.OK);
   }
 
   @DeleteMapping("{id}")
@@ -54,13 +63,14 @@ public class StudentController {
   }
 
   @GetMapping("tiu/{tiu}")
-  public Student fetchTiu(@PathVariable("tiu") String tiu) {
-    return studentService.fetchByTiu(tiu);
+  public ResponseEntity<StudentResource> fetchByTiu(@PathVariable("tiu") String tiu) {
+    return ResponseEntity.ok(
+            studentMapper.toResource(studentService.fetchByTiu(tiu)));
   }
 
   @GetMapping("level/{init}/{end}")
-  public List<Student> fetchLevelBetween(@PathVariable("init") int levelInit, @PathVariable("end") int levelEnd) {
-    return studentService.fetchByLevelBetween(levelInit, levelEnd);
+  public ResponseEntity<List<Student>> fetchLevelBetween(@PathVariable("init") int levelInit, @PathVariable("end") int levelEnd) {
+    return new ResponseEntity<>(studentService.fetchByLevelBetween(levelInit, levelEnd), HttpStatus.OK);
   }
 
   /*@GetMapping("tiuquery/{init}/{end}")

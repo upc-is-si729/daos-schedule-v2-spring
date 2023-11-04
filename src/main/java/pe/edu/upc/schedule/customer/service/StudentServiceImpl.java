@@ -4,6 +4,7 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.schedule.customer.domain.model.entities.Student;
 import pe.edu.upc.schedule.customer.domain.persistence.StudentRepository;
 import pe.edu.upc.schedule.customer.domain.service.StudentService;
@@ -23,6 +24,7 @@ public class StudentServiceImpl implements StudentService {
 
   private final Validator validator;
 
+  @Transactional
   @Override
   public Student save(Student student) {
     Set<ConstraintViolation<Student>> violations = validator.validate(student);
@@ -32,16 +34,19 @@ public class StudentServiceImpl implements StudentService {
     throw new ResourceValidationException("Student", violations);
   }
 
+  @Transactional
   @Override
   public Student update(Student student) {
     return null;
   }
 
+  @Transactional(readOnly = true)
   @Override
   public List<Student> fetchAll() {
     return studentRepository.findAll();
   }
 
+  @Transactional(readOnly = true)
   @Override
   public Student fetchById(Integer id) {
     if (studentRepository.existsById(id)) { // cuando la respuesta de busqueda es un solo elemento
@@ -50,6 +55,7 @@ public class StudentServiceImpl implements StudentService {
     throw new FetchIdNotFoundException("Student", id);
   }
 
+  @Transactional
   @Override
   public boolean deleteById(Integer id) {
     if (studentRepository.existsById(id)) { // cuando la respuesta de busqueda es un solo elemento
@@ -60,6 +66,8 @@ public class StudentServiceImpl implements StudentService {
     }
     throw new FetchIdNotFoundException("Student", id);
   }
+
+  @Transactional
   @Override
   public boolean deleteByIdWithError(Integer id) {
     if (studentRepository.existsById(id)) { // cuando la respuesta de busqueda es un solo elemento
@@ -71,14 +79,16 @@ public class StudentServiceImpl implements StudentService {
     throw new FetchIdNotFoundException("Student", id);
   }
 
+  @Transactional(readOnly = true)
   @Override
   public Student fetchByTiu(String tiu) {
     if (studentRepository.existsByTiu(tiu)) {
-      studentRepository.findByTiu(tiu).orElseThrow();
+      return studentRepository.findByTiu(tiu).orElseThrow();
     }
     throw new FetchNotFoundException("Student", "tiu", tiu);
   }
 
+  @Transactional(readOnly = true)
   @Override
   public List<Student> fetchByLevelBetween(int levelInit, int levelEnd) {
     //return studentRepository.findByLevelBetween(levelInit, levelEnd);
