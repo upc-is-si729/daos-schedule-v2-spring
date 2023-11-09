@@ -13,9 +13,11 @@ public interface StudentService {
 
   List<Student> fetchAll();
 
-  Optional<Student> fetchById(Integer id);
+  Student fetchById(Integer id);
 
   boolean deleteById(Integer id);
+
+  boolean deleteByIdWithError(Integer id);
 
   Student fetchByTiu(String tiu);
 
