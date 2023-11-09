@@ -12,7 +12,7 @@
 	<artifactId>schedule</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>schedule</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Schedule project for DAOS</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -73,6 +73,27 @@
 			<artifactId>modelmapper-spring</artifactId>
 			<version>3.2.0</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-api -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-common -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-common</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+
 
 	</dependencies>
 
