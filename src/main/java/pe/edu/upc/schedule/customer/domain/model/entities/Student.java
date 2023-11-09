@@ -1,9 +1,11 @@
 package pe.edu.upc.schedule.customer.domain.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -42,15 +44,18 @@ public class Student {
   private String numDocumento;
 
   @Past
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   @Column(name = "birth_date")
   @Temporal(TemporalType.DATE)
   private Date birthDate; // lower Camel Case
+
 
   @Min(value = 1)
   @Max(value = 14)
   @Column(name = "level", columnDefinition = "smallint")
   private int level;
 
+  @JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "career_id")
   private Career career;
