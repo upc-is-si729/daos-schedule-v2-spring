@@ -27,9 +27,9 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     #    JDBC : SGDB :// HOST : PORT / DB
-    url: jdbc:postgresql://localhost:5433/schedulev2
+    url: jdbc:postgresql://localhost:5432/schedulev2
     username: postgres
-    password: admin
+    password: postgres
   jpa:
     database: postgresql
     hibernate:
@@ -39,3 +39,16 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+documentation:
+  application:
+    description: @project.description@
+    version: @project.version@
+
+pringdoc:
+  # Contract endpoint: http://localhost:8090/v3/api-docs
+  api-docs:
+    path: /api-docs
+  # Documentation endpoint: http://localhost:8090/swagger-ui/index.html
+  swagger-ui:
+    path: /swagger-ui/index.html
