@@ -1,4 +1,5 @@
-package pe.edu.upc.schedule.salomonzegarra.domain.model.entities;
+package pe.edu.upc.schedule.jorgelaban.model.entities;
+
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -9,12 +10,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers6")
-public class Teacher6 {
+@Table(name = "teacherJorgeLaban")
+public class TeacherJorgeLaban {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -50,6 +50,6 @@ public class Teacher6 {
 
     @NotNull
     @NotBlank
-    @Column(name = "salomonZegarra")
-    private String salomonZegarra;
+    @Column(name="jorgelaban")
+    private String jorgelaban;
 }

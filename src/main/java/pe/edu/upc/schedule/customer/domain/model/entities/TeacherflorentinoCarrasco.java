@@ -1,5 +1,4 @@
-package pe.edu.upc.schedule.salomonzegarra.domain.model.entities;
-
+package pe.edu.upc.schedule.customer.domain.model.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,8 +12,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "teachers6")
-public class Teacher6 {
+@Table(name = "teacherflorentinoCarrasco")
+public class TeacherflorentinoCarrasco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -50,6 +49,6 @@ public class Teacher6 {
 
     @NotNull
     @NotBlank
-    @Column(name = "salomonZegarra")
-    private String salomonZegarra;
+    @Column(name="florentinoCarrasco")
+    private String florentinoCarrasco;
 }

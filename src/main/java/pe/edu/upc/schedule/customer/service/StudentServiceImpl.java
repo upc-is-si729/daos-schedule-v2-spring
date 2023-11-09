@@ -3,13 +3,12 @@ package pe.edu.upc.schedule.customer.service;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.schedule.customer.domain.model.entities.Student;
-import pe.edu.upc.schedule.customer.domain.model.queryresult.TiuQuery;
 import pe.edu.upc.schedule.customer.domain.persistence.StudentRepository;
 import pe.edu.upc.schedule.customer.domain.service.StudentService;
-import pe.edu.upc.schedule.shared.exception.ResourceNotFoundException;
+import pe.edu.upc.schedule.shared.exception.FetchIdNotFoundException;
+import pe.edu.upc.schedule.shared.exception.FetchNotFoundException;
 import pe.edu.upc.schedule.shared.exception.ResourceValidationException;
 
 import java.util.List;
@@ -44,22 +43,40 @@ public class StudentServiceImpl implements StudentService {
   }
 
   @Override
-  public Optional<Student> fetchById(Integer id) {
-    return Optional.empty();
+  public Student fetchById(Integer id) {
+    if (studentRepository.existsById(id)) { // cuando la respuesta de busqueda es un solo elemento
+      return studentRepository.findById(id).orElseThrow();
+    }
+    throw new FetchIdNotFoundException("Student", id);
   }
 
   @Override
   public boolean deleteById(Integer id) {
-    return false;
+    if (studentRepository.existsById(id)) { // cuando la respuesta de busqueda es un solo elemento
+      studentRepository.deleteById(id);
+      if (studentRepository.existsById(id)) // Validar que se elimino
+        return false;
+      return true;
+    }
+    throw new FetchIdNotFoundException("Student", id);
+  }
+  @Override
+  public boolean deleteByIdWithError(Integer id) {
+    if (studentRepository.existsById(id)) { // cuando la respuesta de busqueda es un solo elemento
+      studentRepository.deleteById(id+100);
+      if (studentRepository.existsById(id)) // Validar que se elimino
+        return false;
+      return true;
+    }
+    throw new FetchIdNotFoundException("Student", id);
   }
 
   @Override
   public Student fetchByTiu(String tiu) {
-    Optional<Student> optionalStudent = studentRepository.findByTiu(tiu);
-    if (optionalStudent.isPresent()) {
-      return optionalStudent.get();
+    if (studentRepository.existsByTiu(tiu)) {
+      studentRepository.findByTiu(tiu).orElseThrow();
     }
-    throw new ResourceNotFoundException("Student", "tiu", tiu);
+    throw new FetchNotFoundException("Student", "tiu", tiu);
   }
 
   @Override
