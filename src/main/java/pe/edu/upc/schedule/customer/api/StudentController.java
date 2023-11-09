@@ -61,8 +61,8 @@ public class StudentController {
             HttpStatus.CREATED);
   }
   @Operation(
-    summary = "Get a student by ID",
-    description = "Get a student by ID",
+    summary = "Get student by Id",
+    description = "Get student by Id",
     operationId = "getStudentById",
     responses = {
             @ApiResponse(
