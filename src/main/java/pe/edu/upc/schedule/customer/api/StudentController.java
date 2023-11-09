@@ -60,7 +60,29 @@ public class StudentController {
             studentMapper.toResource(studentService.save(studentMapper.toEntity(resource))),
             HttpStatus.CREATED);
   }
-
+  @Operation(
+    summary = "Get a student by ID",
+    description = "Get a student by ID",
+    operationId = "getStudentById",
+    responses = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successful operation",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = StudentResource.class)
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Bad Request",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = RuntimeException.class)
+                    )
+            )
+    }
+  )
   @GetMapping
   public ResponseEntity<List<Student>> fetchAll() {
     return ResponseEntity.ok(studentService.fetchAll());
