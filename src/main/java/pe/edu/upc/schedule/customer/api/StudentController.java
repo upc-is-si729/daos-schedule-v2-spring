@@ -66,6 +66,29 @@ public class StudentController {
     return ResponseEntity.ok(studentService.fetchAll());
   }
 
+  @Operation(
+          summary = "Get a student by its id" ,
+          description = "Gets a student from the schedule fetched by its id",
+          operationId = "getStudentById",
+          responses = {
+                  @ApiResponse (
+                          responseCode = "201",
+                          description = "Successful operation",
+                          content = @Content (
+                                  mediaType = "application/json",
+                                  schema = @Schema(implementation = StudentResource.class)
+                          )
+                  ),
+                  @ApiResponse (
+                          responseCode = "400",
+                          description = "Bad Request",
+                          content = @Content (
+                                  mediaType = "application/json",
+                                  schema = @Schema(implementation = RuntimeException.class)
+                          )
+                  )
+          }
+  )
   @GetMapping("{id}")
   public ResponseEntity<StudentResource> fetchById(@PathVariable("id") Integer id) {
     // GET(id): None -> Entity -> DTO-Out
