@@ -73,6 +73,29 @@ public class StudentController {
             studentMapper.toResource(studentService.fetchById(id)),
             HttpStatus.OK);
   }
+  @Operation(
+          summary = "Get a student ID",
+          description = "Get a student ID",
+          operationId = "getStudentById",
+          responses = {
+                  @ApiResponse(
+                          responseCode = "200",
+                          description = "Successful operation",
+                          content = @Content(
+                                  mediaType = "application/json",
+                                  schema = @Schema(implementation = StudentResource.class)
+                          )
+                  ),
+                  @ApiResponse(
+                          responseCode = "404",
+                          description = "Bad Request for ID",
+                          content = @Content(
+                                  mediaType = "application/json",
+                                  schema = @Schema(implementation = RuntimeException.class)
+                          )
+                  )
+          }
+  )
 
   @DeleteMapping("{id}")
   public ResponseEntity<?> deleteById(@PathVariable("id") Integer id) {
