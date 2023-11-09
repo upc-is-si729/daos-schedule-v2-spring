@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface stevensacha extends JpaRepository<Teacher8,Integer> {
-    Optional<Teacher8> findByNumDocument(String numDocument);
+    //Optional<Teacher8> findByNumDocument(String numDocument);
 
-    @Query(value = "SELECT * from teachers8 WHERE birhtDate BETWEEN :birthDateInit and :birhtDateEnd", nativeQuery = true)
-    List<Teacher8> sqlBirthDateBetween(Date birthDateInit, Date birthDateEnd);
+    //@Query(value = "SELECT * from teachers8 WHERE birhtDate BETWEEN :birthDateInit and :birhtDateEnd", nativeQuery = true)
+    //List<Teacher8> sqlBirthDateBetween(Date birthDateInit, Date birthDateEnd);
 
 }

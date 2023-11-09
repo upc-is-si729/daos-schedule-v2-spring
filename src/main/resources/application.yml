@@ -29,7 +29,7 @@ spring:
     #    JDBC : SGDB :// HOST : PORT / DB
     url: jdbc:postgresql://localhost:5432/schedulev2
     username: postgres
-    password: postgres
+    password: password
   jpa:
     database: postgresql
     hibernate:
