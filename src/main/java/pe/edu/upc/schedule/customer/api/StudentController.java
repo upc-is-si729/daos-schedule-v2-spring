@@ -24,7 +24,7 @@ public class StudentController {
 
   @PostMapping
   public ResponseEntity<StudentResource> save(@RequestBody CreateStudentResource resource) {
-    // POST: 	DTO-In -> Entity -> DTO-Out
+    // POST: 	DTO-Input-Request -> Entity -> DTO-Output-response
     return new ResponseEntity<>(
             studentMapper.toResource(studentService.save(studentMapper.toEntity(resource))),
             HttpStatus.CREATED);
